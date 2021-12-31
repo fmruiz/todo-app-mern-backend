@@ -1,10 +1,14 @@
 const express = require("express");
+const { connectDB } = require("./config/db");
 // create server
 const app = express();
 
-app.get('/', (request, response) => {
-    response.send('hello world')
-})
+// connect to database
+connectDB();
+
+app.get("/", (request, response) => {
+  response.send("hello world");
+});
 
 const PORT = process.env.PORT || 4000;
 // server on
