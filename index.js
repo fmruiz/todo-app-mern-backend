@@ -6,9 +6,10 @@ const app = express();
 // connect to database
 connectDB();
 
-app.get("/", (request, response) => {
-  response.send("hello world");
-});
+app.use(express.json({ extended: true }));
+
+// add routing
+app.use("/api/users", require("./routes/users"));
 
 const PORT = process.env.PORT || 4000;
 // server on
